@@ -8,10 +8,6 @@ public abstract class Hand {
         hand = new ArrayList<>();
     }
 
-    public void takeCard(Deck deck){
-        hand.add(deck.sendCard());
-    }
-
     public int countScore(){
         //TODO сделать, что бы туз давал или 1 или 11
         int score = 0;
@@ -28,5 +24,8 @@ public abstract class Hand {
         }
         return result;
     }
-    public abstract void play();
+    public abstract void play(Deck deck) throws InterruptedException;
+    public void takeOneCard(Deck deck){
+        hand.add(deck.sendCard());
+    }
 }
